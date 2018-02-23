@@ -1,0 +1,2 @@
+2018/01/29 21:10:28 [crit] 6#6: *29 realpath() "/var/www/symfony/web" failed (2: No such file or directory), client: 172.22.0.1, server: margiela.dev, request: "GET /api/config HTTP/1.1", host: "192.168.0.15"
+2018/01/29 21:10:28 [error] 6#6: *29 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.22.0.1, server: margiela.dev, request: "GET /api/config HTTP/1.1", upstream: "fastcgi://172.22.0.3:9000", host: "192.168.0.15"
