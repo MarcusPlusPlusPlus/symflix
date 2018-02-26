@@ -43,5 +43,7 @@ setDurationTime
         $manager->persist($episode);
         $manager->persist($category);
         $manager->flush();
+        $manager->flush();
+        $manager->flush();
     }
 }
