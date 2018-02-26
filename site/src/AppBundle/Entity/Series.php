@@ -61,7 +61,7 @@ class Series
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Episode", mappedBy="series")
      */
-    private $episode;
+    private $episodes;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category", cascade={"persist"})
@@ -70,15 +70,19 @@ class Series
 
     public function __construct()
     {
-        $this->episode = new ArrayCollection();
+        $this->episodes = new ArrayCollection();
         $this->categories = new ArrayCollection();
     }
 
+
+    public function addEpisode(Episode $episode) {
+        $this->episodes[] = $episode;
+    }
     /**
      * @return Collection|Episode[]
      */
-    public function getEpisode() {
-        return $this->episode;
+    public function getEpisodes() {
+        return $this->episodes;
     }
 
     public function addCategory(Category $category) {
@@ -152,27 +156,27 @@ class Series
     }
 
     /**
-     * Set createionDate
+     * Set creationDate
      *
-     * @param \DateTime $createionDate
+     * @param \DateTime $creationDate
      *
      * @return Series
      */
-    public function setCreateionDate($createionDate)
+    public function setCreationDate($creationDate)
     {
-        $this->createionDate = $createionDate;
+        $this->creationDate = $creationDate;
 
         return $this;
     }
 
     /**
-     * Get createionDate
+     * Get creationDate
      *
      * @return \DateTime
      */
-    public function getCreateionDate()
+    public function getCreationDate()
     {
-        return $this->createionDate;
+        return $this->creationDate;
     }
 
     /**
