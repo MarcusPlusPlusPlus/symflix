@@ -57,20 +57,9 @@ class Episode
     private $durationTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="episode")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Series", cascade={"persist"})
      */
     private $series;
-
-    public function getSeries(): Series
-    {
-        return $this->series;
-    }
-
-    public function setSeries(Category $series)
-    {
-        $this->series = $series;
-    }
 
     /**
      * Get id
@@ -87,7 +76,6 @@ class Episode
      *
      * @param string $name
      *
-     * @return Episode
      */
     public function setName($name)
     {
@@ -132,21 +120,16 @@ class Episode
 
     /**
      * Set season
-     *
      * @param integer $season
-     *
      * @return Episode
      */
     public function setSeason($season)
     {
         $this->season = $season;
-
-        return $this;
     }
 
     /**
      * Get season
-     *
      * @return int
      */
     public function getSeason()
@@ -156,21 +139,16 @@ class Episode
 
     /**
      * Set episode
-     *
      * @param integer $episode
-     *
      * @return Episode
      */
     public function setEpisode($episode)
     {
         $this->episode = $episode;
-
-        return $this;
     }
 
     /**
      * Get episode
-     *
      * @return int
      */
     public function getEpisode()
@@ -200,6 +178,16 @@ class Episode
     public function getDurationTime()
     {
         return $this->durationTime;
+    }
+
+    public function setSeries(Series $series = null)
+    {
+      $this->series = $series;
+    }
+  
+    public function getSeries()
+    {
+      return $this->series;
     }
 }
 
