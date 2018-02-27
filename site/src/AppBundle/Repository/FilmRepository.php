@@ -23,6 +23,7 @@ class FilmRepository extends \Doctrine\ORM\EntityRepository
     {
         $name .= ".{0,}";
         $query = $this->createQueryBuilder("f")
+            ->select("f.titre")
             ->andWhere("REGEXP(f.titre, :titre) = true")
             ->setParameter("titre", $name)
             ->getQuery();
