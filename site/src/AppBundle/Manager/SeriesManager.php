@@ -30,4 +30,10 @@ class SeriesManager
         return $this->em->getRepository(Series::class)->find($id);
     }
 
+    public function CreateSerie(Series $serie){
+        $this->em->persist($serie);
+        $this->em->flush();
+        return $serie;
+    }
+
 }

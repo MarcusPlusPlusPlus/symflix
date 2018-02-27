@@ -8,9 +8,18 @@
 
 namespace AppBundle\Controller;
 
+
+use AppBundle\Entity\Series;
+use AppBundle\Form\SerieType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Manager\SeriesManager;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+
+
 
 class SeriesController extends Controller
 {
@@ -29,5 +38,40 @@ class SeriesController extends Controller
         $serie = $manager->getSerie($id);
 
         return $this->render('series/view_serie.html.twig', ['serie'=>$serie]);
+    }
+
+    /**
+     * @Route("/series/add", name="serie_add")
+     */
+    public function addAction(SeriesManager $seriesManager ,Request $request){
+        $serie = new Series();
+
+        $form = $this->createForm(SerieType::class, $serie);
+//            ->add('name', TextType::class)
+//            ->add('description', TextareaType::class)
+//            ->add('creationDate', DateType::class)
+//            ->add('releaseDate', DateType::class)
+//            ->add('durationTime', TextType::class)
+//            ->add('categories', EntityType::class, [
+//                'class'=>Category::class,
+//                'choice_label'=> 'name',
+//                'multiple'=>true,
+//            ])
+//            ->add('save', SubmitType::class, ['label' =>'Ajouter une Serie'])
+//            ->getForm();
+
+        $form->handleRequest($request);
+         if($form->isSubmitted() && $form->isValid()){
+           $seriesManager->CreateSerie($form->getData());
+
+            return $this->redirectToRoute('list_series');
+        }
+        return $this->render('series/add.html.twig', ['form' => $form->createView()])
+        ;
+
+
+
+
+
     }
 }
