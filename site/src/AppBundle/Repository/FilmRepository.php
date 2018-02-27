@@ -13,7 +13,7 @@ class FilmRepository extends \Doctrine\ORM\EntityRepository
     public function getAllFilmsName()
     {
         $query = $this->createQueryBuilder("f")
-            ->select("f.titre")
+            ->select("f.id, f.titre")
             ->setFirstResult(0)
             ->setMaxResults(50)
             ->getQuery();
@@ -23,7 +23,7 @@ class FilmRepository extends \Doctrine\ORM\EntityRepository
     {
         $name .= ".{0,}";
         $query = $this->createQueryBuilder("f")
-            ->select("f.titre")
+            ->select("f.id, f.titre")
             ->andWhere("REGEXP(f.titre, :titre) = true")
             ->setParameter("titre", $name)
             ->getQuery();
