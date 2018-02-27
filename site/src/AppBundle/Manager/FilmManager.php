@@ -31,7 +31,7 @@ class FilmManager {
 
     public function getSearchFilmsName($name)     // Search a movie
     {
-        $data = $this->em->getRepository(Film::class)->getFilmsByName($name);
+        $data = $this->em->getRepository(Film::class)->getSearchFilmsName($name);
         return $data;
     }
 }

@@ -32,18 +32,9 @@ class SeriesFixtures extends Fixture
         $series->addCategory($category);
         $episode->setSeries($series);
         /* MANAGER */
-
-/*
-setDurationDate
-setDurationTime
-*/
-
-
         $manager->persist($series);
         $manager->persist($episode);
         $manager->persist($category);
-        $manager->flush();
-        $manager->flush();
         $manager->flush();
     }
 }

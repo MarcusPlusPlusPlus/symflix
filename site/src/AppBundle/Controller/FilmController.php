@@ -16,12 +16,13 @@ class FilmController extends Controller
     }
 
     /**
-     * @Route("/film/search", name="film-search")
+     * @Route("/film/search/{filmTitle}", name="film-search")
      */
-    public function filmSearchAction()
+    public function filmSearchAction($filmTitle)
     {
-        // $data = $this->fm->getFilmsName($filmTitle);
-        // dump($data);
-        return $this->render("film/search.html.twig");
+        dump($filmTitle);
+        $data = $this->fm->getSearchFilmsName($filmTitle);
+        dump($data);
+        return $this->render("film/search.html.twig", []);
     }
 }

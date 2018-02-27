@@ -19,11 +19,11 @@ class FilmRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $query->execute();
     }
-    public function getFilmsByName($name)
+    public function getSearchFilmsName($name)
     {
-        $name .= ".+";
+        $name .= ".{0,}";
         $query = $this->createQueryBuilder("f")
-            ->addWhere("p.titre REGEXP \":titre\"")
+            ->andWhere("REGEXP(f.titre, :titre) = true")
             ->setParameter("titre", $name)
             ->getQuery();
         return $query->execute();
