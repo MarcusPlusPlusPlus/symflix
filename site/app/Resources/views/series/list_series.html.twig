@@ -1,0 +1,14 @@
+<html>
+<head>
+    <titre></titre>
+</head>
+<body>
+<h2>Liste des Series</h2>
+{% for serie in series %}
+    {{ dump(serie) }}
+<h4>{{ serie.name }}</h4>
+<p>{{ serie.description }}</p>
+<p>{{ serie.creationDate | date('Y-m-d à H:i:s') }}</p>
+{% endfor %}
+</body>
+</html>
