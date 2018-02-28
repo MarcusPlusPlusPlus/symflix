@@ -47,18 +47,6 @@ class SeriesController extends Controller
         $serie = new Series();
 
         $form = $this->createForm(SerieType::class, $serie);
-//            ->add('name', TextType::class)
-//            ->add('description', TextareaType::class)
-//            ->add('creationDate', DateType::class)
-//            ->add('releaseDate', DateType::class)
-//            ->add('durationTime', TextType::class)
-//            ->add('categories', EntityType::class, [
-//                'class'=>Category::class,
-//                'choice_label'=> 'name',
-//                'multiple'=>true,
-//            ])
-//            ->add('save', SubmitType::class, ['label' =>'Ajouter une Serie'])
-//            ->getForm();
 
         $form->handleRequest($request);
          if($form->isSubmitted() && $form->isValid()){
@@ -68,10 +56,25 @@ class SeriesController extends Controller
         }
         return $this->render('series/add.html.twig', ['form' => $form->createView()])
         ;
+    }
 
+    /**
+     * @Route("/series/edit/{id}", name="serie_edit", requirements={"id"="\d+"})
+     */
+    public function editAction(Request $request, Series $series){
+        $form = $this->createForm(SerieType::class, $series);
 
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $series = $form->getData();
 
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($series);
+            $em->flush();
 
-
+            $this->addFlash('succes','La série à été modifiée avec succés');
+            return $this->redirectToRoute('list_series');
+        }
+        return $this->render('/series/edit.html.twig', ['form' => $form->createView()]);
     }
 }
