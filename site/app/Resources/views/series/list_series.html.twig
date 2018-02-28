@@ -1,0 +1,14 @@
+<html>
+<head>
+    <titre></titre>
+</head>
+<body>
+<h2>Liste des Series</h2>
+{% for serie in series %}
+<h4><a href="{{ path('serie_view', {'id': serie.id}) }}"> {{ serie.name }}</a></h4>
+<p>{{ serie.description }}</p>
+<p>{{ serie.creationDate | date('d-m-Y') }}</p>
+    <P>{{ serie.releaseDate | date('d-m-Y') }}</P>
+{% endfor %}
+</body>
+</html>

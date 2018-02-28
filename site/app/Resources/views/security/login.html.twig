@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<center>
+<div>
+    <div>
+        <div>
+            <div>
+                <div>Login</div>
+                <div>
+                    <form role="form" method="POST" action="{{ path('security_login_check') }}">
+                        {% if error %}
+                            <div>
+                                {{ error.messageKey|trans(error.messageData) }}
+                            </div>
+                        {% endif %}
+
+                        <div>
+                            <label for="email" control-label">E-Mail Address</label>
+
+                            <div>
+                                <input id="email" type="email" name="_email" value="{{ last_username }}">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="password" control-label">Password</label>
+
+                            <div>
+                                <input id="password" type="password" name="_password">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <button type="submit">
+                                    <i></i> Login
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</center>
+{% include 'footer.html.twig' %}
+{% endblock %}
