@@ -122,7 +122,7 @@ class User implements UserInterface
      */
     public function setRole($role = null)
     {
-        $this->role = $roll;
+        $this->role = $role;
     }
 
     /**

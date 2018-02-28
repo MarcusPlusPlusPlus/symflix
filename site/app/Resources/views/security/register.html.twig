@@ -8,7 +8,13 @@
           <div>Register</div>
           <div>
             {{ form_start(form) }}
-            <div class="form_group">
+            <div class="form">
+                <div>
+                  {{ form_row(form.username, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form">
                 <div>
                   {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
                 </div>

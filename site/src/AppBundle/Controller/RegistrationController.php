@@ -31,7 +31,7 @@ class RegistrationController extends Controller
     {
       //Encodage du mdp
       $encoder = $this->get('security.password_encoder');
-      $password = $encoder->encodePasswotd($user, $user->getPlainPassword());
+      $password = $encoder->encodePassword($user, $user->getPlainPassword());
       $user->setPassword($password);
       //Détermination du rôle
       $user->setRole('ROLE_USER');
