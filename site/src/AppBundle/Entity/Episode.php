@@ -24,37 +24,23 @@ class Episode
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="titre", type="string", length=255)
      */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text")
-     */
-    private $description;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="season", type="integer")
-     */
-    private $season;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="episode", type="integer")
-     */
-    private $episode;
+    private $titre;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="durationTime", type="time")
+     * @ORM\Column(name="duree", type="time")
      */
-    private $durationTime;
+    private $duree;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="video", type="string", length=255)
+     */
+    private $video;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Series", cascade={"persist"})
@@ -72,115 +58,78 @@ class Episode
     }
 
     /**
-     * Set name
+     * Set titre
      *
-     * @param string $name
+     * @param string $titre
      *
+     * @return Episode
      */
-    public function setName($name)
+    public function setTitre($titre)
     {
-        $this->name = $name;
+        $this->titre = $titre;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get titre
      *
      * @return string
      */
-    public function getName()
+    public function getTitre()
     {
-        return $this->name;
+        return $this->titre;
     }
 
     /**
-     * Set description
+     * Set duree
      *
-     * @param string $description
+     * @param \DateTime $duree
      *
      * @return Episode
      */
-    public function setDescription($description)
+    public function setDuree($duree)
     {
-        $this->description = $description;
+        $this->duree = $duree;
 
         return $this;
     }
 
     /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set season
-     * @param integer $season
-     * @return Episode
-     */
-    public function setSeason($season)
-    {
-        $this->season = $season;
-    }
-
-    /**
-     * Get season
-     * @return int
-     */
-    public function getSeason()
-    {
-        return $this->season;
-    }
-
-    /**
-     * Set episode
-     * @param integer $episode
-     * @return Episode
-     */
-    public function setEpisode($episode)
-    {
-        $this->episode = $episode;
-    }
-
-    /**
-     * Get episode
-     * @return int
-     */
-    public function getEpisode()
-    {
-        return $this->episode;
-    }
-
-    /**
-     * Set durationTime
-     *
-     * @param \DateTime $durationTime
-     *
-     * @return Episode
-     */
-    public function setDurationTime($durationTime)
-    {
-        $this->durationTime = $durationTime;
-
-        return $this;
-    }
-
-    /**
-     * Get durationTime
+     * Get duree
      *
      * @return \DateTime
      */
-    public function getDurationTime()
+    public function getDuree()
     {
-        return $this->durationTime;
+        return $this->duree;
     }
 
-    public function setSeries(Series $series = null)
+    /**
+     * Set video
+     *
+     * @param string $video
+     *
+     * @return Episode
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    public function setSerie(Series $series = null)
     {
       $this->series = $series;
     }
