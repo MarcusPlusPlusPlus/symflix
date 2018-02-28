@@ -67,7 +67,6 @@ class Episode
     public function setTitre($titre)
     {
         $this->titre = $titre;
-
         return $this;
     }
 
@@ -91,7 +90,6 @@ class Episode
     public function setDuree($duree)
     {
         $this->duree = $duree;
-
         return $this;
     }
 
@@ -115,7 +113,6 @@ class Episode
     public function setVideo($video)
     {
         $this->video = $video;
-
         return $this;
     }
 
