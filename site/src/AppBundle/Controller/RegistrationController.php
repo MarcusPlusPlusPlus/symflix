@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class RegistrationController extends Controller
 {
@@ -39,8 +39,7 @@ class RegistrationController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($user);
       $em->flush();
-
-      return $this->redirectToRoute('/sign-in');
+      return $this->forward("AppBundle:Security:login");
     }
     /*
     Sinon retour à nouveau de la page de création de compte
