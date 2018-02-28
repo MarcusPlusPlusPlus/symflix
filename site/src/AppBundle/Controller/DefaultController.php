@@ -18,4 +18,9 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    public function menuAction(){
+        $tab = array("menu1", "menu2", "menu3");
+        $this->render("/series/view_serie.html.twig", ['menu'=>$tab]);
+    }
 }
