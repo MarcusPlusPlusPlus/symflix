@@ -16,13 +16,22 @@ class FilmController extends Controller
     }
 
     /**
+     * @Route("film/list", name="film-list")
+     */
+    public function filmListBasicAction()
+    {
+        $data = $this->fm->getAllFilmsName();
+        dump($data);
+        return $this->render("film/list.html.twig", []);
+    }
+
+    /**
      * @Route("/film/search/{filmTitle}", name="film-search")
      */
     public function filmSearchAction($filmTitle)
     {
-        dump($filmTitle);
         $data = $this->fm->getSearchFilmsName($filmTitle);
-        dump($data);
+        dump($filmTitle, $data);
         return $this->render("film/search.html.twig", []);
     }
 }
