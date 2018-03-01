@@ -40,7 +40,7 @@ class RegistrationController extends Controller
       $em->persist($user);
       $em->flush();
 
-      return $this->forward("AppBundle:Security:login");
+      return $this->redirectToRoute('/sign-in');
     }
     /*
     Sinon retour à nouveau de la page de création de compte

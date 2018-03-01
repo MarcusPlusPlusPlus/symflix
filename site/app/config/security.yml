@@ -1,17 +1,12 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
-    access_control:
-      - { path: ^/series, roles: ROLE_ADMIN }
     encoders:
         AppBundle\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         database_users:
             entity: {class: AppBundle:User, property: email}
-
-    role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER, ROLE_ADMIN]
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
