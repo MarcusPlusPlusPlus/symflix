@@ -23,4 +23,11 @@ class DefaultController extends Controller
         $tab = array("menu1", "menu2", "menu3");
         $this->render("/series/view_serie.html.twig", ['menu'=>$tab]);
     }
+
+    /**
+     * @Route("/accueil", name="accueil")
+     */
+    public function loginAccueil(){
+       return $this->render("/accueil/accueil.html.twig");
+    }
 }

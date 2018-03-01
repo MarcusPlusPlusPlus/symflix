@@ -36,7 +36,7 @@ class Episode
     private $description;
 
     /**
-     * @var int
+     * @var string
      *
      * @ORM\Column(name="video", type="string")
      */
@@ -50,7 +50,7 @@ class Episode
     private $durationTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="episodes", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="episode", cascade={"persist"})
      */
     private $serie;
 
@@ -69,6 +69,7 @@ class Episode
      *
      * @param string $name
      *
+     * @return Episode
      */
     public function setName($name)
     {
@@ -113,7 +114,7 @@ class Episode
 
     /**
      * Set video
-     * @param integer $video
+     * @param string $video
      * @return Episode
      */
     public function setVideo($video)
@@ -125,11 +126,11 @@ class Episode
 
     /**
      * Get season
-     * @return int
+     * @return string
      */
-    public function getSeason()
+    public function getVideo()
     {
-        return $this->season;
+        return $this->video;
     }
 
     /**
@@ -166,13 +167,4 @@ class Episode
       return $this->serie;
     }
 
-    /**
-     * Get video
-     *
-     * @return string
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
 }

@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Film controller.
  *
- * @Route("film")
+ * @Route("accueil/film")
  */
 class FilmController extends Controller
 {
