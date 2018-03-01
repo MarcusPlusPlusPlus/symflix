@@ -165,14 +165,4 @@ class Episode
     {
       return $this->serie;
     }
-
-    /**
-     * Get video
-     *
-     * @return string
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
 }

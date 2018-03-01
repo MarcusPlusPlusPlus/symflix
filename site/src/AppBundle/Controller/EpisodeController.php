@@ -18,19 +18,20 @@ use Symfony\Component\HttpFoundation\Request;
 class EpisodeController extends Controller
 {
     /**
-     * @Route("/Episode", name="list_episode")
+     * @Route("/episode", name="list_episode")
      */
     public function listAction(EpisodeManager $episodeManager){
         $episode = $episodeManager->getEpisodes();
-        return $this->render('episodes/list_episode.html.twig', ['epiosdes'=>$episode]);
+        return $this->render('episodes/list_episode.html.twig', ['episodes'=>$episode]);
     }
 
     /**
-     * @Route("/episodes/{id}", name="episode_view", requirements={"id"="\d+"})
+     * @Route("/episode/{id}", name="episode_view", requirements={"id"="\d+"})
      */
     public function viewEpisode(EpisodeManager $episodeManager, int $id){
         $episode = $episodeManager->getEpisode($id);
-        return $this->render('episode/view_episode.html.twig', ['episode'=>$episode]);
+
+        return $this->render('episodes/view_episode.html.twig', ['episode'=>$episode]);
     }
 
     /**
@@ -47,7 +48,7 @@ class EpisodeController extends Controller
 
             return $this->redirectToRoute('list_episode');
         }
-        return $this->render('episode/add.html.twig', ['form'=>$form->createView()]);
+        return $this->render('episodes/add.html.twig', ['form'=>$form->createView()]);
     }
 
 }

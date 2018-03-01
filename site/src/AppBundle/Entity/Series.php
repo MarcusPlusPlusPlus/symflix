@@ -87,6 +87,7 @@ class Series
 
     public function addCategory(Category $category) {
       $this->categories[] = $category;
+      return $this;
     }
 
     public function removeCategory(Category $category) {

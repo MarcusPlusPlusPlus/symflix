@@ -3,11 +3,11 @@
 <p>{{ serie.creationDate | date('d-m-Y') }}</p>
 <p>{{ serie.releaseDate | date('d-m-Y') }}</p>
 <P>{{ serie.durationTime }}</P>
-{% include"footeur.html.twig" %}
-{% extends"layout.html.twig" %}
-{% block content %}
-      <h1>Vive l'héritage dans twig !</h1>
-{% endblock %}
+{#{% include"footeur.html.twig" %}#}
+{#{% extends"layout.html.twig" %}#}
+{#{% block content %}#}
+      {#<h1>Vive l'héritage dans twig !</h1>#}
+{#{% endblock %}#}
 
-{{ render(controller('AppBundle:Controller:menuAction')) }}
+{#{{ render(controller('AppBundle:Controller:menuAction')) }}#}
 
