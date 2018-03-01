@@ -27,16 +27,13 @@ class EpisodeType extends AbstractType
             ->add('description', TextareaType::class)
             ->add('video', TextType::class)
             ->add('durationTime', DateType::class)
-            ->add('serie', EntityType::class)
-//            ->add('serie', EntityType::class, [
-//                'class'=>Series::class,
-//           'name' => 'name',
-//            'description' => 'description',
-//            'creationDate' => 'creation',
-//            'releaseDate' => 'releaseDate',
-//            'durationTime' => 'durationTime',
-//            ])
-            ->add('save', SubmitType::class, ['label' => 'Ajouter une Episode'])
+            ->add('serie', EntityType::class, array(
+                'class' => Series::class,
+                'choice_label' => 'name',
+                'multiple' => false,
+
+            ))
+            ->add('save', SubmitType::class, ['label' => 'Modifier l\'épisode'])
         ;
     }
 }

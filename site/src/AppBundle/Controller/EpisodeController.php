@@ -51,4 +51,18 @@ class EpisodeController extends Controller
         return $this->render('episodes/add.html.twig', ['form'=>$form->createView()]);
     }
 
+    /**
+     * @Route("/episode/edit/{id}", name="episode_edit")
+     */
+    public function editAction(Request $request, Episode $episode, EpisodeManager $manager){
+        $form = $this->createForm(EpisodeType::class, $episode);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $episode = $form->getData();
+            $manager->editEpisode($episode);
+
+            return $this->redirectToRoute('list_episode');
+        }
+        return $this->render('episodes/edit.html.twig', ['form'=> $form->createView()]);
+    }
 }

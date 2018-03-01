@@ -38,4 +38,10 @@ class EpisodeManager
         return$episode;
     }
 
+    public function editEpisode(Episode $episode){
+        $this->em->persist($episode);
+        $this->em->flush();
+        return $episode;
+    }
+
 }
