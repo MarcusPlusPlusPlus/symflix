@@ -29,9 +29,9 @@ class FilmManager {
         return $data;
     }
 
-    public function getSearchFilmsName($name)     // Search a movie
+    public function getSearchFilms($name)     // Search a movie
     {
-        $data = $this->em->getRepository(Film::class)->getSearchFilmsName($name);
+        $data = $this->em->getRepository(Film::class)->getFilmsName($name);
         return $data;
     }
 }

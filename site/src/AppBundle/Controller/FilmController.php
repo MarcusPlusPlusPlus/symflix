@@ -5,7 +5,14 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Film;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+/**/
+use AppBundle\Manager\FilmManager;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 /**
  * Film controller.
@@ -14,6 +21,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class FilmController extends Controller
 {
+    private $fm;
+    public function __construct(FilmManager $filmManager)
+    {
+        $this->fm = $filmManager;
+    }
+
+
     /**
      * Lists all film entities.
      *
@@ -65,6 +79,7 @@ class FilmController extends Controller
      */
     public function showAction(Film $film)
     {
+        var_dump($film);
         $deleteForm = $this->createDeleteForm($film);
 
         return $this->render('film/show.html.twig', array(
@@ -132,5 +147,39 @@ class FilmController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * @Route("/search", name="film-search")
+     */
+    public function searchFilmAction(Request $request)
+    {
+        $defaultData = array();
+        $form = $this->createFormBuilder($defaultData)
+            ->add('titre', TextType::class)
+            ->add('Search', SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $data = $form->getData();
+            $query = $this->fm->getSearchFilms($data["titre"]);
+            if(count($query) > 0)
+            {
+                return $this->resultSearchAction($query);
+            }
+            else {
+                var_dump("No result");
+            }
+        }    
+        return $this->render("film/search.html.twig", ["form" => $form->createView()]);
+    }
+
+    /**
+     * @Route("/result", name="film-search-result")
+     */
+    public function resultSearchAction($form)
+    {
+        return $this->render("film/result.html.twig", ["data" => $form]);
     }
 }

@@ -1,1 +1,16 @@
-<h1>Search</h1>
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>Rechercher un film</h1>
+        <br>
+        <div class="row">
+            <div class="col-6 align-self-center">
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_row(form.titre) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
