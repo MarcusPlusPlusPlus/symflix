@@ -1,12 +1,55 @@
-{% extends 'base.html.twig' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Project Symflix{% endblock %}</title>
+  {% block stylesheets %}
+  <style>
+    body{
+      background-color: #F4F1F4;
+      font-family:Arial,sans-serif;
+    }
+    .wrapper{
+      margin:180px;
+    }
+    .form_group{
+      width: 250px;
+      height: 350px;
+      background-color:white;
+      padding-top:30px;
+      box-shadow:10px 5px 10px #000;
+    }
+    .form_label{
+      padding: 10px;
+      border: 0;
+    }
+    input{
+      border-top:0;
+      border-right:0;
+      border-left:0;
+    }
+    button{
+      width: 70%;
+      height: 25px;
+      border:0;
+      margin-top: 15px;
+    }
+    button:hover{
+      color:white;
+      background-color: grey;
+    }
+  </style>
+  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+<body>
 {% block body %}
 <center>
-<div>
-    <div>
-        <div>
-            <div>
-                <div>Login</div>
-                <div>
+        <div class="wrapper">
+            <div class="form_group">
+                <h1>SYMFLIX</h1>
+                <div class="form_main">
                     <form role="form" method="POST" action="{{ path('security_login_check') }}">
                         {% if error %}
                             <div>
@@ -14,35 +57,43 @@
                             </div>
                         {% endif %}
 
-                        <div>
-                            <label for="email" control-label">E-Mail Address</label>
+                        <div class="form_label">
+                            <label for="email">E-Mail Address</label>
 
                             <div>
                                 <input id="email" type="email" name="_email" value="{{ last_username }}">
                             </div>
                         </div>
 
-                        <div>
-                            <label for="password" control-label">Password</label>
+                        <div class="form_label">
+                            <label for="password">Password</label>
 
                             <div>
                                 <input id="password" type="password" name="_password">
                             </div>
                         </div>
 
-                        <div>
-                            <div>
+                        <div class="form_btn">
+                            <div class="submit_btn">
                                 <button type="submit">
-                                    <i></i> Login
+                                   <b>Login</b>
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <div class="form_btn">
+                        <div class="register_btn">
+                          <a href="{{ path('user_registration') }}" >
+                          <button type="submit">
+                             <b>Register</b>
+                          </button>
+                        </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 </center>
-{% include 'footer.html.twig' %}
 {% endblock %}
+</body>
+</html>
