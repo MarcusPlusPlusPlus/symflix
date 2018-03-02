@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class FilmRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getFilmsName($name)
+    {
+        $name .= ".{0,}";
+        $query = $this->createQueryBuilder("f")
+            ->select("f.id, f.titre")
+            ->andWhere("REGEXP(f.titre, :query) = true")
+            ->setParameter("query", $name)
+            ->getQuery();
+        return $query->execute();
+    }
+
 }

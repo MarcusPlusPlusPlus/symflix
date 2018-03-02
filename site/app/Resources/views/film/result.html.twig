@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>Résultat de la recherche</h1>
+        <br>
+        <ul>
+            {% for item in data %}
+                <li><a href="{{ path('film_show', {'id': item.id}) }}">{ item["titre"] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

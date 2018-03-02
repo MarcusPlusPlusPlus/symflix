@@ -10,7 +10,7 @@ namespace AppBundle\DataFixtures;
 
 
 use AppBundle\Entity\Episode;
-use AppBundle\Entity\Series;
+use AppBundle\Entity\Serie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -26,7 +26,7 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
 
 //        $episode = new Episode();
 //        $category = new Category();
-        /* SERIES */
+        /* SERIE */
 
 
         $Episode
@@ -45,7 +45,7 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            SeriesFixtures::class
+            SerieFixtures::class
         ];
     }
 }
