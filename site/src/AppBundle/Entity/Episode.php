@@ -50,7 +50,7 @@ class Episode
     private $durationTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="episode", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Serie", inversedBy="episode", cascade={"persist"})
      */
     private $serie;
 
@@ -157,9 +157,10 @@ class Episode
         return $this->durationTime;
     }
 
-    public function setSerie(Series $serie = null)
+    public function setSerie(Serie $serie = null)
     {
       $this->serie = $serie;
+      return $this;
     }
   
     public function getSerie()

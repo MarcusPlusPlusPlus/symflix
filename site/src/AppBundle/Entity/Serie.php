@@ -7,12 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * Series
+ * Serie
  *
- * @ORM\Table(name="series")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SeriesRepository")
+ * @ORM\Table(name="serie")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SerieRepository")
  */
-class Series
+class Serie
 {
     /**
      * @var int
@@ -59,7 +59,7 @@ class Series
     private $durationTime;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Episode", mappedBy="series")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Episode", mappedBy="serie")
      */
     private $episodes;
 
@@ -113,7 +113,7 @@ class Series
      *
      * @param string $name
      *
-     * @return Series
+     * @return Serie
      */
     public function setName($name)
     {
@@ -137,7 +137,7 @@ class Series
      *
      * @param string $description
      *
-     * @return Series
+     * @return Serie
      */
     public function setDescription($description)
     {
@@ -161,7 +161,7 @@ class Series
      *
      * @param \DateTime $creationDate
      *
-     * @return Series
+     * @return Serie
      */
     public function setCreationDate($creationDate)
     {
@@ -185,7 +185,7 @@ class Series
      *
      * @param \DateTime $releaseDate
      *
-     * @return Series
+     * @return Serie
      */
     public function setReleaseDate($releaseDate)
     {
@@ -209,7 +209,7 @@ class Series
      *
      * @param string $durationTime
      *
-     * @return Series
+     * @return Serie
      */
     public function setDurationTime($durationTime)
     {
@@ -227,5 +227,14 @@ class Series
     {
         return $this->durationTime;
     }
-}
 
+    /**
+     * Remove episode
+     *
+     * @param \AppBundle\Entity\Episode $episode
+     */
+    public function removeEpisode(\AppBundle\Entity\Episode $episode)
+    {
+        $this->episodes->removeElement($episode);
+    }
+}

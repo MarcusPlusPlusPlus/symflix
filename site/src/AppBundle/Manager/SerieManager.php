@@ -8,10 +8,10 @@
 
 namespace AppBundle\Manager;
 
-use AppBundle\Entity\Series;
+use AppBundle\Entity\Serie;
 use Doctrine\ORM\EntityManagerInterface;
 
-class SeriesManager
+class SerieManager
 {
     /**
      * @var EntityManagerInterface
@@ -23,14 +23,14 @@ class SeriesManager
     }
 
     public function getSeries(){
-        return $this->em->getRepository(Series::class)->findAll();
+        return $this->em->getRepository(Serie::class)->findAll();
     }
 
     public function getSerie(int $id){
-        return $this->em->getRepository(Series::class)->find($id);
+        return $this->em->getRepository(Serie::class)->find($id);
     }
 
-    public function CreateSerie(Series $serie){
+    public function CreateSerie(Serie $serie){
         $this->em->persist($serie);
         $this->em->flush();
         return $serie;

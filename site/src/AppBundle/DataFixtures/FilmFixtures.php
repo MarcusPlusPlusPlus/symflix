@@ -27,8 +27,8 @@ class FilmFixtures extends Fixture implements DependentFixtureInterface
             ->setVideo("link")
             ->setRealisateur("Bryan")
             ->setActeurs("test1, test2")
-            ->addCategorie($this->getReference('category2'))
-            ->addCategorie($this->getReference('category4'))
+            ->addCategories($this->getReference('category2'))
+            ->addCategories($this->getReference('category4'))
             ;
         $manager->persist($Film);
         $manager->flush();

@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 /**
  * Film controller.
  *
- * @Route("accueil/film")
+ * @Route("film")
  */
 class FilmController extends Controller
 {

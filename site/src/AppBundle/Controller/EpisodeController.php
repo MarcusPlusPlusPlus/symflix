@@ -65,4 +65,11 @@ class EpisodeController extends Controller
         }
         return $this->render('episodes/edit.html.twig', ['form'=> $form->createView()]);
     }
+
+    /**
+     *
+     */
+    public function deleteAction(){
+
+    }
 }

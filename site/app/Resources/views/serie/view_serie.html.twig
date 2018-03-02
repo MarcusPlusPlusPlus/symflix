@@ -3,6 +3,13 @@
 <p>{{ serie.creationDate | date('d-m-Y') }}</p>
 <p>{{ serie.releaseDate | date('d-m-Y') }}</p>
 <P>{{ serie.durationTime }}</P>
+
+{% for episode in serie.episodes %}
+    <p>{{ episode.description }}</p>
+{% endfor %}
+
+
+
 {#{% include"footeur.html.twig" %}#}
 {#{% extends"layout.html.twig" %}#}
 {#{% block content %}#}

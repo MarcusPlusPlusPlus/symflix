@@ -47,6 +47,7 @@ class CategoryFixtures extends Fixture
 
 
         $manager->flush();
+
         $this->addReference('category1', $Category1);
         $this->addReference('category3', $Category3);
         $this->addReference('category4', $Category4);
