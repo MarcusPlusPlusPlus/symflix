@@ -21,7 +21,7 @@ class DefaultController extends Controller
 
     public function menuAction(){
         $tab = array("menu1", "menu2", "menu3");
-        $this->render("/series/view_serie.html.twig", ['menu'=>$tab]);
+        $this->render("/serie/view_serie.html.twig", ['menu'=>$tab]);
     }
 
     /**

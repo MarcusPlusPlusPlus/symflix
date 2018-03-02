@@ -9,7 +9,7 @@
 namespace AppBundle\Form;
 
 
-use AppBundle\Entity\Series;
+use AppBundle\Entity\Serie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -28,7 +28,7 @@ class EpisodeType extends AbstractType
             ->add('video', TextType::class)
             ->add('durationTime', DateType::class)
             ->add('serie', EntityType::class, array(
-                'class' => Series::class,
+                'class' => Serie::class,
                 'choice_label' => 'name',
                 'multiple' => false,
 
