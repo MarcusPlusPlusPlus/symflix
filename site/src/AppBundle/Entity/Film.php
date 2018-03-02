@@ -208,7 +208,7 @@ class Film
     /**
      * Add categorie
      *
-     * @param \AppBundle\Entity\Categorie $categorie
+     * @param \AppBundle\Entity\Category $category
      *
      * @return Film
      */
@@ -222,11 +222,11 @@ class Film
     /**
      * Remove categorie
      *
-     * @param \AppBundle\Entity\Categorie $categorie
+     * @param \AppBundle\Entity\Category $category
      */
-    public function removeCategorie(\AppBundle\Entity\Categorie $categorie)
+    public function removeCategorie(\AppBundle\Entity\Category $category)
     {
-        $this->categorie->removeElement($categorie);
+        $this->categorie->removeElement($category);
     }
 
     /**
@@ -234,7 +234,7 @@ class Film
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategorie()
+    public function getCategories()
     {
         return $this->categorie;
     }

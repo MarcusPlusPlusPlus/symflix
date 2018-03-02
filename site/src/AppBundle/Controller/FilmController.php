@@ -58,6 +58,11 @@ class FilmController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $film->getVideo();
+            $fileName = md5(uniqid()).".".$file->guessExtension();
+            var_dump($fileName);
+            $file->move($this->getParameter("film_directory"), $fileName);
+            $film->setVideo($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($film);
             $em->flush();
@@ -79,7 +84,6 @@ class FilmController extends Controller
      */
     public function showAction(Film $film)
     {
-        var_dump($film);
         $deleteForm = $this->createDeleteForm($film);
 
         return $this->render('film/show.html.twig', array(
