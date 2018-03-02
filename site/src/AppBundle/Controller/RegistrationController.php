@@ -40,7 +40,7 @@ class RegistrationController extends Controller
       $em->persist($user);
       $em->flush();
 
-      return $this->redirectToRoute('/sign-in');
+      return $this->redirectToRoute('login');
     }
     /*
     Sinon retour à nouveau de la page de création de compte

@@ -1,1 +1,39 @@
-<h1>PAGE ADMIN</h1>
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Admin - Project Symflix{% endblock %}</title>
+  {% block stylesheets %}
+  <style>
+  </style>
+  {% endblock %}
+</head>
+<body>
+<center>
+<div class="main">
+  <h1>ADMIN - Symflix</h1>
+  <div class="admin_content">
+    <a href="{{ path('category_index') }}" target="_blank"><h3>Config Film</h3></a>
+  </div>
+  <div class="admin_content">
+    <a href="{{ path('list_series') }}" target="_blank"><h3>Config Series</h3></a>
+  </div>
+  <div class="admin_content">
+    <a href="{{ path('film_index') }}" target="_blank"><h3>Config Category</h3></a>
+  </div>
+  <div class="admin_content">
+    <a href="{{ path('list_episode') }}" target="_blank"><h3>Config Episode</h3></a>
+  </div>
+</div>
+<div class="form_btn">
+    <div class="logout_btn">
+      <a href="{{ path('logout') }}" >
+      <button type="submit">
+         <b>logout</b>
+      </button>
+    </a>
+    </div>
+</div>
+</center>
+</body>
+</html>

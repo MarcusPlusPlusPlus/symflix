@@ -14,7 +14,7 @@ class CategoryController extends Controller
     /**
      * Lists all category entities.
      *
-     * @Route("/category", name="category_index")
+     * @Route("/admin/category", name="category_index")
      */
     public function indexAction()
     {
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     /**
      * Creates a new category entity.
      *
-     * @Route("category/new", name="category_new")
+     * @Route("/admin/category/new", name="category_new")
      */
     public function newAction(Request $request)
     {
@@ -55,7 +55,7 @@ class CategoryController extends Controller
     /**
      * Finds and displays a category entity.
      *
-     * @Route("category/{id}", name="category_show")
+     * @Route("/admin/category/{id}", name="category_show")
      */
     public function showAction(Category $category)
     {
@@ -70,7 +70,7 @@ class CategoryController extends Controller
     /**
      * Displays a form to edit an existing category entity.
      *
-     * @Route("category/{id}/edit", name="category_edit")
+     * @Route("/admin/category/{id}/edit", name="category_edit")
      */
     public function editAction(Request $request, Category $category)
     {
@@ -94,7 +94,7 @@ class CategoryController extends Controller
     /**
      * Deletes a category entity.
      *
-     * @Route("category/{id}/delete", name="category_delete")
+     * @Route("/admin/category/{id}/delete", name="category_delete")
      */
     public function deleteAction(Request $request, Category $category)
     {

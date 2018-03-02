@@ -1,40 +1,85 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Inscription - Symflix{% endblock %}</title>
+  {% block stylesheets %}
+  <style>
+    body{
+      background-color: #F4F1F4;
+      font-family:Arial,sans-serif;
+    }
+    .wrapper{
+      margin:100px;
+    }
+    .form_group{
+      width: 300px;
+      height: 400px;
+      background-color:white;
+      padding-top:30px;
+      box-shadow:10px 5px 10px #000;
+    }
+    .form_label{
+      padding: 10px;
+      border: 0;
+      display: flex;
+    }
+    .form_components{
+      display: inline-block;
+    }
+    input{
+      border-top:0;
+      border-right:0;
+      border-left:0;
+    }
+    button{
+      width: 70%;
+      height: 25px;
+      border:0;
+      margin-top: 15px;
+    }
+    button:hover{
+      color:white;
+      background-color: grey;
+    }
+  </style>
+  {% endblock %}
+<body>
 {% block body %}
 <center>
-<div class="container">
-  <div class="row">
-    <div>
+<div class="wrapper">
+  <div class="form_group">
         <div>
-          <div>Register</div>
-          <div>
+          <h1>Register</h1>
+          <div class="form_main">
             {{ form_start(form) }}
-            <div class="form">
-                <div>
-                  {{ form_row(form.username, {'attr': {'class': 'form-control'}}) }}
+            <div class="form_label">
+                <div class="form_components">
+                  {{ form_row(form.username) }}
                 </div>
             </div>
 
-            <div class="form">
-                <div>
-                  {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+            <div class="form_label">
+                <div class="form_components">
+                  {{ form_row(form.name) }}
                 </div>
             </div>
 
-            <div class="form">
-                <div>
-                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+            <div class="form_label">
+                <div class="form_components">
+                {{ form_row(form.email) }}
                 </div>
             </div>
 
-            <div class="form">
-                <div>
-                {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+            <div class="form_label">
+                <div class="form_components">
+                {{ form_row(form.plainPassword.first) }}
                 </div>
             </div>
 
-            <div class="form">
-                <div>
-                {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+            <div class="form_label">
+                <div class="form_components">
+                {{ form_row(form.plainPassword.second) }}
               </div>
             </div>
 
@@ -48,10 +93,11 @@
             {{ form_end(form) }}
           </div>
         </div>
-    </div>
   </div>
 </div>
 <style>
 </style>
 </center>
 {% endblock %}
+</body>
+</html>

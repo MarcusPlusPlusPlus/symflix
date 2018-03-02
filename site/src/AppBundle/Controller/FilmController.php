@@ -7,17 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
-/**
- * Film controller.
- *
- * @Route("accueil/film")
- */
 class FilmController extends Controller
 {
     /**
      * Lists all film entities.
      *
-     * @Route("/", name="film_index")
+     * @Route("/film", name="film_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -34,7 +29,7 @@ class FilmController extends Controller
     /**
      * Creates a new film entity.
      *
-     * @Route("/new", name="film_new")
+     * @Route("/admin/film/new", name="film_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -60,11 +55,12 @@ class FilmController extends Controller
     /**
      * Finds and displays a film entity.
      *
-     * @Route("/{id}", name="film_show")
+     * @Route("/film/{id}", name="film_show")
      * @Method("GET")
      */
-    public function showAction(Film $film)
+    public function showAction(Film $film = null)
     {
+      var_dump("coucou");
         $deleteForm = $this->createDeleteForm($film);
 
         return $this->render('film/show.html.twig', array(
@@ -76,7 +72,7 @@ class FilmController extends Controller
     /**
      * Displays a form to edit an existing film entity.
      *
-     * @Route("/{id}/edit", name="film_edit")
+     * @Route("/admin/film/{id}/edit", name="film_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Film $film)
@@ -101,7 +97,7 @@ class FilmController extends Controller
     /**
      * Deletes a film entity.
      *
-     * @Route("/{id}", name="film_delete")
+     * @Route("/admin/film/{id}/delete", name="film_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Film $film)
@@ -120,10 +116,11 @@ class FilmController extends Controller
 
     /**
      * Creates a form to delete a film entity.
-     *
+     * @Route("/admin/film/{id}/form", name="film__form_delete")
      * @param Film $film The film entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\Form
+     * The form
      */
     private function createDeleteForm(Film $film)
     {

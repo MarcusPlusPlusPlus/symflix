@@ -35,7 +35,7 @@ class EpisodeController extends Controller
     }
 
     /**
-     * @Route("episode/add", name="episode_add")
+     * @Route("/admin/episode/add", name="episode_add")
      */
     public function addAction(Request $request, EpisodeManager $episodeManager){
         $episode = new Episode();
@@ -52,7 +52,7 @@ class EpisodeController extends Controller
     }
 
     /**
-     * @Route("/episode/edit/{id}", name="episode_edit")
+     * @Route("/admin/episode/edit/{id}", name="episode_edit")
      */
     public function editAction(Request $request, Episode $episode, EpisodeManager $manager){
         $form = $this->createForm(EpisodeType::class, $episode);
