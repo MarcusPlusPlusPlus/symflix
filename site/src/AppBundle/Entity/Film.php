@@ -202,16 +202,16 @@ class Film
      */
     public function __construct()
     {
-        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add categorie
+     * Add category
      *
-     * @param \AppBundle\Entity\Category $categorie
-     * @return Category
+     * @param \AppBundle\Entity\Category $category
+     * @return Film
      */
-    public function addCategorie(Category $category)
+    public function addCategories(Category $category)
     {
         $this->categories[] = $category;
 
@@ -223,9 +223,9 @@ class Film
      *
      * @param \AppBundle\Entity\Category $categorie
      */
-    public function removeCategorie(\AppBundle\Entity\Category $categorie)
+    public function removeCategories(\AppBundle\Entity\Category $categorie)
     {
-        $this->categorie->removeElement($categorie);
+        $this->categories->removeElement($categorie);
     }
 
     /**
@@ -233,9 +233,9 @@ class Film
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategorie()
+    public function getCategories()
     {
-        return $this->categorie;
+        return $this->categories;
     }
 
     /**
