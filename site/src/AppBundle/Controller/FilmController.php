@@ -85,10 +85,11 @@ class FilmController extends Controller
     public function showAction(Film $film)
     {
         $deleteForm = $this->createDeleteForm($film);
-
+        $fileLocation = "uploads/film/".$film->getVideo();
         return $this->render('film/show.html.twig', array(
             'film' => $film,
             'delete_form' => $deleteForm->createView(),
+            "fileLocation" => $fileLocation
         ));
     }
 
