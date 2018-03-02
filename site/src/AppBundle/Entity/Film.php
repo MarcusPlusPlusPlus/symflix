@@ -206,7 +206,7 @@ class Film
     }
 
     /**
-     * Add category
+     * Add categorie
      *
      * @param \AppBundle\Entity\Category $category
      * @return Film
@@ -221,11 +221,11 @@ class Film
     /**
      * Remove category
      *
-     * @param \AppBundle\Entity\Category $categorie
+     * @param \AppBundle\Entity\Category $category
      */
-    public function removeCategories(\AppBundle\Entity\Category $categorie)
+    public function removeCategorie(\AppBundle\Entity\Category $category)
     {
-        $this->categories->removeElement($categorie);
+        $this->categorie->removeElement($category);
     }
 
     /**
