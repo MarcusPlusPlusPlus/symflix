@@ -18,6 +18,7 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new User();
+// mots de passe : admin
         $user
             ->setEmail('admin@symflix.fr')
             ->setPassword(' $2y$13$ay.uUn0h2RaVuRspyuLWue2dW2R96.fvC9/Qw/H8URkfnhKWxamp2')
@@ -27,11 +28,11 @@ class UserFixtures extends Fixture
             ;
 
         $manager->persist($user);
-
+// mots de passe : vibi
         $user1 = new User();
         $user1
             ->setEmail('user@symflix.fr')
-            ->setPassword(' $2y$13$ay.uUn0h2RaVuRspyuLWue2dW2R96.fvC9/Qw/H8URkfnhKWxamp2')
+            ->setPassword('$2y$13yquoFZKIkpA5W6NgFk9tYjuarrqX5eq0sdXGL/bhOle.h8q.dOwO2W')
             ->setUsername('user')
             ->setName('user')
             ->setRole('ROLE_USER')
