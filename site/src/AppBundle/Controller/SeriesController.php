@@ -36,8 +36,9 @@ class SeriesController extends Controller
      */
     public function viewSerie(SeriesManager $manager, int $id){
         $serie = $manager->getSerie($id);
-
+        dump($serie);
         return $this->render('series/view_serie.html.twig', ['serie'=>$serie]);
+
     }
 
     /**

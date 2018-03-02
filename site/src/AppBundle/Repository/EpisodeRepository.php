@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class EpisodeRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

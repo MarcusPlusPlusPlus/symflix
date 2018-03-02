@@ -160,6 +160,7 @@ class Episode
     public function setSerie(Series $serie = null)
     {
       $this->serie = $serie;
+      return $this;
     }
   
     public function getSerie()
