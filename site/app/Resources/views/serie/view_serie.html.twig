@@ -6,6 +6,10 @@
 
 {% for episode in serie.episodes %}
     <p>{{ episode.description }}</p>
+    <p>{{ episode.name }}</p>
+    <video>{{ episode.video }}</video>
+    <p>{{ episode.durationTime }}</p>
+    
 {% endfor %}
 
 
